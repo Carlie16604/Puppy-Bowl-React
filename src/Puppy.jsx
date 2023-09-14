@@ -12,8 +12,6 @@ const singlePuppy = () => {
         fetchAllPuppers();
     },[])
 
-    console.log(puppy)
-
     return (
         <div>
             <h2>Pupper List</h2>

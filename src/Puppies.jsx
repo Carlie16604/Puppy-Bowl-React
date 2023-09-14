@@ -1,6 +1,7 @@
 import {useState, useEffect, Route, Routes} from "react"
 import axios from "axios"
 import {Link, useParams} from 'react-router-dom'
+import singlePuppy from "./Puppy";
 
 
 const AllPuppies = () => {  
@@ -39,16 +40,12 @@ const AllPuppies = () => {
             allPuppies.map((pup) => {
                 return (
                     <div key={pup.id}>
-                        <Link to={`/puppies/${pup.name}`}>{pup.name}</Link>
-                        <p>{pup.id === hash ? pup.breed: null}</p>
+                        <Link to='/puppies' className={pathName === '/puppies' ? 'selected': ''}>({allPuppies.status})</Link>
                     </div>
-                    )
+                )
             })
             
         }
-        <Routes>
-            <Route path='/puppies/:id' element={<Pup singlePup={allPuppies}/>} />
-        </Routes>
         <button className='puppiesButton' onClick={details}>See Details</button>  
         </div>
     </div>
@@ -58,10 +55,14 @@ const AllPuppies = () => {
 export default AllPuppies
 
 {/*const ids = ()=> {
-        const params = useParams();
-        const id = params.id;
-            return (
-                <h1>Detail for</h1>
-            )
+    const params = useParams();
+    const id = params.id;
+    return (
+        <h1>Detail for</h1>
+        )
     }
-console.log(ids)}*/}
+console.log(ids)}
+
+<Routes>
+    <Route path='/puppies/:name' element={<Pup singlePup={allPuppies}/>} />
+</Routes>*/}
